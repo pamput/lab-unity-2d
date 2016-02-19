@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 002f6b701a1d9bc4699ea1ce827c8053
+timeCreated: 1455581868
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: idle_0
+    21300002: idle_1
+    21300004: idle_2
+    21300006: idle_3
+    21300008: idle_4
+    21300010: idle_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 156
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 35}
+        - {x: 13, y: 37}
+        - {x: -25, y: 37}
+        - {x: -35, y: 16}
+        - {x: -35, y: -37}
+        - {x: 15, y: -37}
+        - {x: 34, y: -4}
+        - {x: 34, y: 8}
+        - {x: 31, y: 9}
+    - name: idle_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 156
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33, y: 2}
+        - {x: 29, y: 28}
+        - {x: 13, y: 37}
+        - {x: -15, y: 37}
+        - {x: -32, y: 23}
+        - {x: -34, y: 6}
+        - {x: -34, y: -33}
+        - {x: -32, y: -37}
+        - {x: 15, y: -37}
+        - {x: 34, y: -25}
+        - {x: 36, y: -16}
+        - {x: 36, y: 2}
+    - name: idle_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 156
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 38}
+        - {x: -21, y: 38}
+        - {x: -35, y: 20}
+        - {x: -35, y: -14}
+        - {x: -34, y: -15}
+        - {x: -25, y: -17}
+        - {x: -21, y: -12}
+        - {x: -26, y: -19}
+        - {x: -35, y: -27}
+        - {x: -35, y: -37}
+        - {x: 29, y: -37}
+        - {x: 37, y: -24}
+        - {x: 37, y: 2}
+        - {x: 18, y: 36}
+    - name: idle_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 156
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 37}
+        - {x: -34, y: 37}
+        - {x: -34, y: -37}
+        - {x: 27, y: -37}
+        - {x: 37, y: -19}
+        - {x: 37, y: -8}
+        - {x: 26, y: 30}
+    - name: idle_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 156
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 27}
+        - {x: 8, y: 37}
+        - {x: -18, y: 37}
+        - {x: -29, y: 24}
+        - {x: -34, y: -15}
+        - {x: -34, y: -33}
+        - {x: -31, y: -36}
+        - {x: -22, y: -36}
+        - {x: -19, y: -33}
+        - {x: -3, y: -37}
+        - {x: 12, y: -37}
+        - {x: 17, y: -35}
+        - {x: 33, y: -24}
+        - {x: 33, y: -3}
+    - name: idle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 36}
+        - {x: 8, y: 37}
+        - {x: -24, y: 37}
+        - {x: -34, y: 33}
+        - {x: -34, y: -37}
+        - {x: 18, y: -37}
+        - {x: 35, y: -7}
+        - {x: 35, y: 5}
+        - {x: 18, y: 28}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
