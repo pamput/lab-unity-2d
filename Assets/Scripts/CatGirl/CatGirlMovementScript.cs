@@ -7,11 +7,15 @@ namespace CatGirl {
     public class CatGirlMovementScript : MonoBehaviour {
 
         public float speed = 15f;
-        public float jumpForce = 850f;
+        public float jumpForce = 300f;
+        public float jumpMaxForce = 850f;
+        public float jumpDelta = 10f;
+
         bool grounded;
+        float totalJumpForceApplied = 0;
          
         CatGirlControllerScript input;
-        Rigidbody2D rigidbody2D;
+        new Rigidbody2D rigidbody2D;
 
         // Use this for initialization
         void Start() {
@@ -34,10 +38,28 @@ namespace CatGirl {
             }
         }
 
-        void OnJump(bool jump) {
-            if (jump && grounded) {
-                rigidbody2D.AddForce(new Vector2(rigidbody2D.velocity.x, jumpForce));
+        void OnJump(float rawJump, float jump) {
+            if (jump == 0 && grounded) {
+                this.totalJumpForceApplied = 0f;
+
             }
+
+            if (jump > 0) {
+                if (grounded) {
+                    rigidbody2D.AddForce(Vector2.up * jumpForce);
+                    totalJumpForceApplied = jumpForce;
+                }
+
+                if (!grounded && totalJumpForceApplied <= jumpMaxForce) {
+                    totalJumpForceApplied += jumpDelta;
+                    rigidbody2D.AddForce(Vector2.up * jumpDelta);
+                }
+
+                if (rigidbody2D.velocity.y < 0 && totalJumpForceApplied == 0f) {
+                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+                }
+            }
+
         }
 
         void OnGrounded(bool grounded) {

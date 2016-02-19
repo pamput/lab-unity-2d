@@ -24,8 +24,8 @@ namespace CatGirl {
             animator.SetFloat("hSpeed", Mathf.Abs(direction));
         }
 
-        void OnJump(bool jump) {
-            animator.SetBool("isJump", jump);
+        void OnJump(float rawJump, float jump) {
+            animator.SetBool("isJump", rawJump > 0);
         }
 
         void OnGrounded(bool grounded) {
