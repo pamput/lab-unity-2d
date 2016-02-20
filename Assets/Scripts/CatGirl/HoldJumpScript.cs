@@ -3,10 +3,9 @@ using System.Collections;
 
 namespace CatGirl {
 
-    [RequireComponent(typeof(CatGirlControllerScript))]
-    public class CatGirlHoldJumpMovementScript : MonoBehaviour {
+    [RequireComponent(typeof(ControllerScript))]
+    public class HoldJumpScript : MonoBehaviour {
 
-        public float speed = 15f;
         public float startJumpVelocity = 15f;
         public float jumpVelocity = 30f;
         public float jumpMaxHoldTime = 0.08f;
@@ -17,28 +16,16 @@ namespace CatGirl {
         float jumpHoldTime = 0;
         bool jumpAllow = true;
          
-        CatGirlControllerScript input;
+        ControllerScript input;
         new Rigidbody2D rigidbody2D;
 
         // Use this for initialization
         void Start() {
-            input = GetComponent<CatGirlControllerScript>();
+            input = GetComponent<ControllerScript>();
             rigidbody2D = GetComponent<Rigidbody2D>();
 
-            input.OnMove += OnMove;
             input.OnJump += OnJump;
             input.OnGrounded += OnGrounded;
-        }
-
-        void OnMove(float rawDirection, float direction) {
-            float distance = rawDirection * speed;
-            rigidbody2D.velocity = new Vector2(distance, rigidbody2D.velocity.y);
-
-            if (distance > 0) {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            } else if (distance < 0) {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1, transform.localScale.y, transform.localScale.z);
-            }
         }
 
         void OnJump(bool buttonJump, float buttonJumpTime) {

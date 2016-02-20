@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace CatGirl {
-    public class CatGirlControllerScript : MonoBehaviour {
+    public class ControllerScript : MonoBehaviour {
 
         public delegate void MoveAction(float rawDirection,float direction);
 

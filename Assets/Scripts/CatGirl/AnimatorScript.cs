@@ -3,10 +3,10 @@ using System.Collections;
 
 namespace CatGirl {
     
-    [RequireComponent(typeof(CatGirlControllerScript))]
-    public class CatGirlAnimatorScript : MonoBehaviour {
+    [RequireComponent(typeof(ControllerScript))]
+    public class AnimatorScript : MonoBehaviour {
          
-        CatGirlControllerScript input;
+        ControllerScript input;
         Animator animator;
 
         bool grounded;
@@ -14,7 +14,7 @@ namespace CatGirl {
 
         // Use this for initialization
         void Start() {
-            input = GetComponent<CatGirlControllerScript>();
+            input = GetComponent<ControllerScript>();
             animator = GetComponent<Animator>();
 
             input.OnMove += OnMove;
