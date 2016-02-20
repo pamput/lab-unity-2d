@@ -7,12 +7,15 @@ namespace CatGirl {
     public class CatGirlMovementScript : MonoBehaviour {
 
         public float speed = 15f;
-        public float jumpForce = 300f;
-        public float jumpMaxForce = 850f;
-        public float jumpDelta = 10f;
+        public float startJumpForce = 15f;
+        public float jumpForce = 30f;
+        public float jumpMaxHoldTime = 0.08f;
 
         bool grounded;
-        float totalJumpForceApplied = 0;
+        bool notInMidJump = true;
+
+        float jumpHoldTime = 0;
+        bool jumpAllow = true;
          
         CatGirlControllerScript input;
         new Rigidbody2D rigidbody2D;
@@ -38,32 +41,35 @@ namespace CatGirl {
             }
         }
 
-        void OnJump(float rawJump, float jump) {
-            if (jump == 0 && grounded) {
-                this.totalJumpForceApplied = 0f;
-
+        void OnJump(bool buttonJump, float buttonJumpTime) {
+            
+            if (buttonJump && grounded) {
+                rigidbody2D.velocity = Vector2.up * startJumpForce;
             }
 
-            if (jump > 0) {
-                if (grounded) {
-                    rigidbody2D.AddForce(Vector2.up * jumpForce);
-                    totalJumpForceApplied = jumpForce;
-                }
+            bool fastJump = !grounded && !buttonJump && buttonJumpTime > 0;
+            bool longJump = !grounded && buttonJump && buttonJumpTime >= jumpMaxHoldTime;
+            bool isJump = fastJump || longJump;
 
-                if (!grounded && totalJumpForceApplied <= jumpMaxForce) {
-                    totalJumpForceApplied += jumpDelta;
-                    rigidbody2D.AddForce(Vector2.up * jumpDelta);
-                }
-
-                if (rigidbody2D.velocity.y < 0 && totalJumpForceApplied == 0f) {
-                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
-                }
+            if (isJump && jumpAllow && rigidbody2D.velocity.y > 0) {
+                float fraction = jumpForce / jumpMaxHoldTime;
+                float force = fraction * Mathf.Min(jumpMaxHoldTime, buttonJumpTime);
+                force = Mathf.Max(force, rigidbody2D.velocity.y);
+                rigidbody2D.velocity = Vector2.up * force;
+                jumpAllow = false;
             }
-
         }
 
         void OnGrounded(bool grounded) {
             this.grounded = grounded;
+
+            if (grounded) {
+                jumpAllow = true;
+            }
+
+            if (grounded && rigidbody2D.velocity.y < 0) {
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+            }
         }
     }
 }

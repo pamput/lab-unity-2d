@@ -6,7 +6,7 @@ namespace CatGirl {
 
         public delegate void MoveAction(float rawDirection,float direction);
 
-        public delegate void JumpAction(float rawJump,float jump);
+        public delegate void JumpAction(bool buttonJump,float buttonJumpTime);
 
         public delegate void GroundedAction(bool grounded);
 
@@ -21,14 +21,21 @@ namespace CatGirl {
         // Axis check
         float axisHorizontal;
         float axisHorizontalRaw;
-        float axisJump;
-        float axisJumpRaw;
+        bool buttonJump;
+        float buttonJumpTime = -1f;
 
         void Update() {
             axisHorizontal = Input.GetAxis("Horizontal");
             axisHorizontalRaw = Input.GetAxisRaw("Horizontal");
-            axisJump = Input.GetAxis("Jump");
-            axisJumpRaw = Input.GetAxisRaw("Jump");
+
+            // JUMP
+            buttonJump = Input.GetButton("Jump");
+
+            if (buttonJump && buttonJumpTime != -1f) {
+                buttonJumpTime += Time.deltaTime;
+            } else if (buttonJump && buttonJumpTime == -1f) {
+                buttonJumpTime = 0;
+            }
         }
 
         void FixedUpdate() {
@@ -40,9 +47,13 @@ namespace CatGirl {
         void CheckJump() {
             if (OnJump != null) {
                 OnJump(
-                    axisJumpRaw,
-                    axisJump
+                    buttonJump,
+                    buttonJumpTime
                 );
+
+                if (!buttonJump) {
+                    buttonJumpTime = -1f;
+                }
             }
         }
 
